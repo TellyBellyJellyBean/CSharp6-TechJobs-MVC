@@ -4,7 +4,7 @@ using TechJobsMVCAutograded6.Models;
 
 namespace TechJobsMVCAutograded6.Data;
 
-public class JobData
+public class JobData 
 {
     static private string DATA_FILE = "Data/job_data.csv";
 

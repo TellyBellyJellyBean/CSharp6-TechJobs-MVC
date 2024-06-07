@@ -15,5 +15,5 @@ public class HomeController : Controller
         ViewBag.actions = actionChoices;
         return View();
     }
-}
+} 
 
