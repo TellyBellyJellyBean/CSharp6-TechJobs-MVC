@@ -22,10 +22,11 @@ public class SearchController : Controller
         if (searchTerm == "all" || searchTerm == "")
         {
             jobs = JobData.FindAll();
-            // ViewBag.title = "All Jobs";
+            ViewBag.title = "All Jobs";
         }
         else 
         {
+            ViewBag.title = "Result for " + searchTerm + "in " + searchType;
             jobs = JobData.FindByColumnAndValue(searchType, searchTerm);
         }
         ViewBag.jobs = jobs;
