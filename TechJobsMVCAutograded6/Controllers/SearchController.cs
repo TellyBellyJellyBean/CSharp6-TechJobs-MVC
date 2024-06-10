@@ -19,19 +19,19 @@ public class SearchController : Controller
     public IActionResult Results(string searchType, string searchTerm)
     {
         List<Job> jobs = new();
-        if (searchTerm == "all" || searchTerm == "")
+        if (searchTerm == "all" || string.IsNullOrEmpty(searchTerm))
         {
             jobs = JobData.FindAll();
             ViewBag.title = "All Jobs";
         }
         else 
         {
-            ViewBag.title = "Result for " + searchTerm + "in " + searchType;
             jobs = JobData.FindByColumnAndValue(searchType, searchTerm);
+            ViewBag.title = "Result for " + searchTerm + "in " + searchType;
         }
         ViewBag.jobs = jobs;
         ViewBag.columns = ListController.ColumnChoices;
-        return View();
+        return View("Index");
     }
 
     // TODO #3 - Create an action method to process a search request and render the updated search views.
